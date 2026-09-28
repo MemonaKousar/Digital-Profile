@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Memona Kousar | Digital Profile</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +23,9 @@
             line-height: 1.7;
         }
 
-        /* NAVBAR */
+
+        /* NAVIGATION */
+
         nav {
             position: sticky;
             top: 0;
@@ -53,13 +57,16 @@
             color: white;
             text-decoration: none;
             font-size: 15px;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: #d6a8f5;
         }
 
-        /* HERO */
+
+        /* HERO SECTION */
+
         .hero {
             min-height: 430px;
             padding: 65px 8%;
@@ -70,14 +77,27 @@
             background: linear-gradient(135deg, #f3eaff, #fffdfb);
         }
 
+
+        /* PROFILE IMAGE - NO CIRCLE */
+
         .profile-image {
-            width: 230px;
-            height: 230px;
+            width: 240px;
+            height: 240px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 7px solid #c895ed;
-            box-shadow: 0 10px 30px rgba(70,45,100,0.15);
+            object-position: center;
+
+            /* Circle removed */
+            border-radius: 0;
+
+            /* Border removed */
+            border: none;
+
+            /* Shadow removed */
+            box-shadow: none;
         }
+
+
+        /* HERO TEXT */
 
         .hero-text h1 {
             font-size: 52px;
@@ -95,7 +115,9 @@
             font-size: 17px;
         }
 
-        /* MAIN */
+
+        /* MAIN CONTAINER */
+
         .container {
             width: 90%;
             max-width: 1150px;
@@ -108,12 +130,15 @@
             gap: 25px;
         }
 
+
+        /* CARDS */
+
         .card {
             background: white;
             padding: 30px;
             border-radius: 18px;
             border: 1px solid #eee4fa;
-            box-shadow: 0 8px 25px rgba(55,42,90,0.06);
+            box-shadow: 0 8px 25px rgba(55, 42, 90, 0.06);
         }
 
         .card h2 {
@@ -126,7 +151,9 @@
             color: #50576b;
         }
 
+
         /* PERSONAL INFORMATION */
+
         .info p {
             margin: 10px 0;
         }
@@ -135,7 +162,9 @@
             color: #27345c;
         }
 
+
         /* EDUCATION */
+
         .education-item {
             margin-bottom: 22px;
             padding-left: 18px;
@@ -146,7 +175,9 @@
             color: #27345c;
         }
 
+
         /* SKILLS */
+
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -162,7 +193,9 @@
             font-weight: 600;
         }
 
+
         /* PROJECTS */
+
         .project {
             padding: 15px;
             margin-bottom: 15px;
@@ -175,7 +208,9 @@
             color: #27345c;
         }
 
+
         /* CONTACT */
+
         .contact p {
             margin: 12px 0;
         }
@@ -189,7 +224,9 @@
             text-decoration: underline;
         }
 
+
         /* FOOTER */
+
         footer {
             margin-top: 60px;
             background: #202942;
@@ -198,7 +235,9 @@
             padding: 22px;
         }
 
-        /* MOBILE */
+
+        /* MOBILE RESPONSIVE */
+
         @media (max-width: 768px) {
 
             nav {
@@ -218,6 +257,12 @@
                 gap: 25px;
             }
 
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                border-radius: 0;
+            }
+
             .hero-text h1 {
                 font-size: 40px;
             }
@@ -226,12 +271,17 @@
                 grid-template-columns: 1fr;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <!-- NAVIGATION -->
+
     <nav>
 
         <div class="logo">
@@ -239,32 +289,45 @@
         </div>
 
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
 
     </nav>
 
 
+
     <!-- HOME -->
+
     <section class="hero" id="home">
 
         <img src="profile.jpg"
-             alt="Memona Kausar"
-             class="profile-image">                                                                                     
-        .profile-image {
-    width: 240px;
-    height: 240px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    border: none;
-    box-shadow: none;
-}
+             alt="Memona Kousar"
+             class="profile-image">
+
 
         <div class="hero-text">
 
@@ -272,24 +335,33 @@
 
             <h2>BS Information Technology Student</h2>
 
-            <p>University of Education, Multan</p>
+            <p>
+                University of Education, Multan
+            </p>
 
-            <p>📍 Multan, Pakistan</p>
+            <p>
+                📍 Multan, Pakistan
+            </p>
 
-            <p>Learning • Creating • Growing with Technology</p>
+            <p>
+                Learning • Creating • Growing with Technology
+            </p>
 
         </div>
 
     </section>
 
 
+
     <!-- MAIN CONTENT -->
+
     <main class="container">
 
         <div class="grid">
 
 
             <!-- ABOUT -->
+
             <section class="card" id="about">
 
                 <h2>About Me</h2>
@@ -306,7 +378,9 @@
             </section>
 
 
+
             <!-- PERSONAL INFORMATION -->
+
             <section class="card info">
 
                 <h2>Personal Information</h2>
@@ -338,7 +412,9 @@
             </section>
 
 
+
             <!-- EDUCATION -->
+
             <section class="card" id="education">
 
                 <h2>Education</h2>
@@ -356,7 +432,7 @@
                     </p>
 
                     <p>
-                        Current Semester: 5th 
+                        Current Semester: 5th
                     </p>
 
                 </div>
@@ -368,7 +444,7 @@
 
                     <p>
                         Government Girls Higher Secondary School,
-                        qutabpur
+                        Qutabpur
                     </p>
 
                 </div>
@@ -380,7 +456,7 @@
 
                     <p>
                         Government Girls Higher Secondary School,
-                        qutabpur
+                        Qutabpur
                     </p>
 
                 </div>
@@ -388,7 +464,9 @@
             </section>
 
 
+
             <!-- SKILLS -->
+
             <section class="card" id="skills">
 
                 <h2>Skills</h2>
@@ -396,15 +474,25 @@
                 <div class="skills">
 
                     <span class="skill">HTML</span>
+
                     <span class="skill">CSS</span>
+
                     <span class="skill">C++</span>
+
                     <span class="skill">SQL</span>
+
                     <span class="skill">Microsoft Office</span>
+
                     <span class="skill">Canva</span>
+
                     <span class="skill">Communication</span>
+
                     <span class="skill">Teamwork</span>
+
                     <span class="skill">Problem Solving</span>
+
                     <span class="skill">Time Management</span>
+
                     <span class="skill">AI Tools</span>
 
                 </div>
@@ -412,10 +500,13 @@
             </section>
 
 
+
             <!-- PROJECTS -->
+
             <section class="card" id="projects">
 
                 <h2>Projects</h2>
+
 
                 <div class="project">
 
@@ -455,17 +546,9 @@
             </section>
 
 
-           
-
-                    
-                    </p>
-
-                </div>
-
-            </section>
-
 
             <!-- LANGUAGES -->
+
             <section class="card">
 
                 <h2>Languages</h2>
@@ -473,6 +556,7 @@
                 <div class="skills">
 
                     <span class="skill">Urdu</span>
+
                     <span class="skill">English</span>
 
                 </div>
@@ -480,7 +564,9 @@
             </section>
 
 
+
             <!-- CAREER OBJECTIVE -->
+
             <section class="card">
 
                 <h2>Career Objective</h2>
@@ -495,7 +581,9 @@
             </section>
 
 
+
             <!-- CONTACT -->
+
             <section class="card contact" id="contact">
 
                 <h2>Contact</h2>
@@ -507,7 +595,7 @@
 
                 <p>
                     📧 <strong>Email:</strong>
-                    <a href="mailto:memonakousar32@gmail.com">
+                    <a href="mailto:memonakausar32@gmail.com">
                         memonakausar32@gmail.com
                     </a>
                 </p>
@@ -522,17 +610,22 @@
 
             </section>
 
+
         </div>
 
     </main>
 
 
+
     <!-- FOOTER -->
+
     <footer>
 
         © 2026 Memona Kousar | Digital Profile
 
     </footer>
 
+
 </body>
+
 </html>
