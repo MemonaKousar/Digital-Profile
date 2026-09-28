@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memona Kousar | Personal Profile</title>
+    <title>Memona Kausar | Personal Profile</title>
 
     <style>
         * {
@@ -69,6 +69,14 @@
             background: linear-gradient(135deg, #f3eaff, #fffdfb);
         }
 
+        /* Profile Image Container */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
         .profile-image {
             width: 230px;
             height: 230px;
@@ -76,6 +84,22 @@
             border-radius: 50%;
             border: 7px solid #c895ed;
             box-shadow: 0 10px 30px rgba(70, 45, 100, 0.15);
+        }
+
+        /* Upload Button */
+        .upload-btn {
+            background: #68458f;
+            color: white;
+            padding: 9px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .upload-btn:hover {
+            background: #8058ad;
         }
 
         .hero-text h1 {
@@ -193,6 +217,7 @@
 
         /* Mobile */
         @media (max-width: 768px) {
+
             nav {
                 flex-direction: column;
                 gap: 12px;
@@ -225,7 +250,7 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">Memona <span>Kousar</span></div>
+        <div class="logo">Memona <span>Kausar</span></div>
 
         <ul>
             <li><a href="#home">Home</a></li>
@@ -236,118 +261,17 @@
         </ul>
     </nav>
 
+
     <!-- Hero -->
     <section class="hero" id="home">
 
-        <!-- Replace profile.jpg with your picture -->
-        <img src="profile.jpg" alt="Memona Kausar" class="profile-image">
+        <!-- Profile Picture -->
+        <div class="profile-container">
 
-        <div class="hero-text">
-            <h1>Memona Kousar</h1>
-            <h2>BS Information Technology Student</h2>
-            <p>📍 Multan, Pakistan</p>
-            <p>Learning, creating and growing with technology.</p>
-        </div>
+            <img id="profileImage"
+                 src="profile.jpg"
+                 alt="Memona Kausar"
+                 class="profile-image">
 
-    </section>
-
-    <!-- Content -->
-    <main class="container">
-
-        <div class="grid">
-
-            <!-- About -->
-            <section class="card" id="about">
-                <h2>About Me</h2>
-
-                <p>
-                    Hello! I’m Memona Kousar, a BSIT student at the
-                    University of Education, Multan. I have a strong
-                    interest in technology, programming and creative
-                    digital work. I enjoy learning new skills, exploring
-                    modern technologies and working on practical ideas.
-                    I am a motivated and responsible learner who believes
-                    that consistency and curiosity lead to growth.
-                </p>
-            </section>
-
-            <!-- Education -->
-            <section class="card" id="education">
-                <h2>Education</h2>
-
-                <div class="education-item">
-                    <h3>B.SIT</h3>
-                    <p>University of Education, Multan</p>
-                    <p>2024 – 2028</p>
-                </div>
-
-                <div class="education-item">
-                    <h3>Intermediate</h3>
-                    <p>Government Girls Higher Secondary School, qutabpur</p>
-                </div>
-
-                <div class="education-item">
-                    <h3>Matriculation</h3>
-                    <p>Government Girls Higher Secondary School, qutabpur</p>
-                </div>
-            </section>
-
-            <!-- Skills -->
-            <section class="card" id="skills">
-                <h2>Skills</h2>
-
-                <div class="skills">
-                    <span class="skill">Communication</span>
-                    <span class="skill">Teamwork</span>
-                    <span class="skill">Time Management</span>
-                    <span class="skill">Problem Solving</span>
-                    <span class="skill">Creative Thinking</span>
-                    <span class="skill">Microsoft Office</span>
-                    <span class="skill">Canva</span>
-                    <span class="skill">Internet Research</span>
-                    <span class="skill">AI Tools</span>
-                </div>
-
-                <div class="languages">
-                    <h3>Programming Languages</h3>
-
-                    <div class="skills">
-                        <span class="skill">Python</span>
-                        <span class="skill">C++</span>
-                        <span class="skill">HTML</span>
-                        <span class="skill">CSS</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact -->
-            <section class="card contact" id="contact">
-                <h2>Contact</h2>
-
-                <p>📍 <strong>Location:</strong> Multan, Pakistan</p>
-
-                <p>
-                    📧 <strong>Email:</strong>
-                    <a href="mailto:memonakousar32@gmail.com">
-                        memonakousar32@gmail.com
-                    </a>
-                </p>
-
-                <p>
-                    💻 <strong>GitHub:</strong>
-                    <a href="https://github.com/memonakousar32" target="_blank">
-                        github.com/memonakousar32
-                    </a>
-                </p>
-            </section>
-
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        © 2026 Memona Kausar | Personal Profile
-    </footer>
-
-</body>
-</html>
+            <label for="imageUpload" class="upload-btn">
+                Change Profile Picture
