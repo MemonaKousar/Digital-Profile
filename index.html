@@ -1,547 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Digital Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+    <title>My Digital Profile | BS Information Technology</title>
 
-body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#f7f3ff,#eefaff,#fff5f0);
-    color:#26304f;
-    line-height:1.6;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-nav{
-    position:sticky;
-    top:0;
-    z-index:10;
-    background:#202b50;
-    color:white;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fc;
+            color: #202942;
+            line-height: 1.6;
+        }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
-}
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #202942;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
 
-.logo span{
-    color:#aee1dc;
-}
+        .logo {
+            color: white;
+            font-size: 23px;
+            font-weight: bold;
+        }
 
-nav ul{
-    display:flex;
-    gap:22px;
-    list-style:none;
-}
+        .logo span {
+            color: #c79bea;
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-.hero{
-    min-height:75vh;
-    padding:70px 7%;
-    display:flex;
-    align-items:center;
-    text-align:center;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
 
-.wrap{
-    max-width:900px;
-    width:100%;
-    margin:auto;
-}
+        nav ul li a:hover {
+            color: #c79bea;
+        }
 
-.tag{
-    font-size:13px;
-    letter-spacing:3px;
-    font-weight:bold;
-    color:#7558b7;
-}
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 8%;
+            background: linear-gradient(135deg, #faf8ff, #eee7fa);
+        }
 
-h1{
-    font:55px Georgia,serif;
-    line-height:1.15;
-    margin:15px 0;
-    color:#222b4b;
-}
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
 
-h1 span{
-    color:#7558c5;
-}
+        .hero-text {
+            flex: 1;
+        }
 
-.hero h2{
-    font-size:22px;
-    color:#344d79;
-    margin-bottom:15px;
-}
+        .hero-text h4 {
+            color: #7650a8;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-.hero p{
-    font-size:17px;
-    color:#5d6577;
-    max-width:650px;
-    margin:auto;
-}
+        .hero-text h1 {
+            font-size: 48px;
+            color: #202942;
+            margin-bottom: 10px;
+        }
 
-.editbtn{
-    display:inline-block;
-    margin-top:25px;
-    padding:12px 25px;
-    border:0;
-    border-radius:30px;
-    background:linear-gradient(135deg,#7959c8,#5e8ddc);
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
+        .hero-text h1 span {
+            color: #8a5bb8;
+        }
 
-section:not(.hero){
-    max-width:1050px;
-    margin:25px auto;
-    padding:40px 7%;
-    border-radius:28px;
-    background:#ffffffee;
-    box-shadow:0 12px 35px #282d5512;
-}
+        .hero-text h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #555;
+        }
 
-section h2{
-    font:30px Georgia,serif;
-    color:#314b7a;
-    margin-bottom:18px;
-}
+        .hero-text p {
+            font-size: 17px;
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
 
-.about{
-    color:#5b6276;
-    font-size:17px;
-}
+        .btn {
+            display: inline-block;
+            background: #202942;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
 
-.edu{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
-}
+        .btn:hover {
+            background: #7650a8;
+            transform: translateY(-2px);
+        }
 
-.card{
-    flex:1;
-    min-width:230px;
-    padding:24px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#fff9fc,#f1f8ff);
-    border:1px solid #dfe5f5;
-}
+        .btn-outline {
+            background: transparent;
+            color: #202942;
+            border: 2px solid #202942;
+        }
 
-.card h3{
-    color:#35527f;
-    margin-bottom:7px;
-}
+        .btn-outline:hover {
+            color: white;
+        }
 
-.card p{
-    color:#60687a;
-}
+        /* PROFILE IMAGE */
+        .profile-area {
+            flex: 0 0 330px;
+            text-align: center;
+        }
 
-.status{
-    display:inline-block;
-    margin-top:10px;
-    padding:4px 14px;
-    border-radius:20px;
-    background:#e9e1ff;
-    color:#54418a;
-    font-size:13px;
-    font-weight:bold;
-}
+        .profile-area img {
+            width: 300px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(32,41,66,0.25);
+            border: 6px solid white;
+        }
 
-.skills{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
+        /* SECTIONS */
+        section {
+            padding: 80px 8%;
+        }
 
-.skill{
-    padding:9px 17px;
-    border-radius:22px;
-    background:#e9edff;
-    color:#3c4e78;
-    font-weight:bold;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
 
-#editPanel{
-    display:none;
-    max-width:1050px;
-    margin:25px auto;
-    padding:30px 7%;
-    background:white;
-    border-radius:25px;
-    box-shadow:0 10px 30px #0002;
-}
+        .section-title h2 {
+            font-size: 32px;
+            color: #202942;
+        }
 
-#editPanel label{
-    display:block;
-    font-weight:bold;
-    margin-top:13px;
-    color:#314b7a;
-}
+        .section-title p {
+            color: #777;
+            margin-top: 8px;
+        }
 
-#editPanel input,
-#editPanel textarea{
-    width:100%;
-    padding:11px;
-    margin-top:5px;
-    border:1px solid #ccd3e5;
-    border-radius:10px;
-    font:inherit;
-}
+        /* ABOUT */
+        .about {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            font-size: 17px;
+            color: #555;
+        }
 
-#editPanel textarea{
-    min-height:90px;
-    resize:vertical;
-}
+        /* EDUCATION */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.save{
-    background:#2e8b83;
-}
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
 
-.reset{
-    background:#777;
-    margin-left:8px;
-}
+        .card:hover {
+            transform: translateY(-7px);
+        }
 
-.contact p{
-    margin:8px 0;
-    color:#596176;
-}
+        .card h3 {
+            color: #7650a8;
+            margin-bottom: 10px;
+        }
 
-footer{
-    margin-top:40px;
-    padding:25px;
-    text-align:center;
-    background:#202b50;
-    color:white;
-}
+        .card p {
+            color: #666;
+        }
 
-@media(max-width:750px){
+        /* SKILLS */
+        .skills {
+            max-width: 1000px;
+            margin: auto;
+        }
 
-    nav{
-        flex-direction:column;
-        gap:12px;
-    }
+        .skill {
+            margin-bottom: 20px;
+        }
 
-    nav ul{
-        gap:13px;
-        flex-wrap:wrap;
-        justify-content:center;
-    }
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
 
-    h1{
-        font-size:40px;
-    }
+        .skill-bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-    .edu{
-        flex-direction:column;
-    }
+        .skill-progress {
+            height: 100%;
+            background: #7650a8;
+            border-radius: 10px;
+        }
 
-    section:not(.hero){
-        margin:18px 12px;
-        padding:30px 22px;
-    }
-}
-</style>
+        /* PROJECTS */
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-card h3 {
+            color: #202942;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            background: #202942;
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 12px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #151b2d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #c79bea;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .profile-area img {
+                width: 250px;
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
+    <div class="logo">My<span>Profile</span></div>
 
-<div class="logo">
-<span id="navName">Memona Kousar</span>
-</div>
-
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
 
+<!-- HERO -->
 <section class="hero" id="home">
 
-<div class="wrap">
+    <div class="hero-container">
 
-<div class="tag">
-WELCOME TO MY DIGITAL PROFILE
-</div>
+        <div class="hero-text">
 
-<h1>
-Hi, I'm<br>
-<span id="heroName">Memona Kousar</span>
-</h1>
+            <h4>Hello, I'm</h4>
 
-<h2 id="degree">
-BS Information Technology — 5th Semester
-</h2>
+            <h1><span>Memona Kousar</span></h1>
 
-<p id="intro">
-Write a short introduction about yourself here.
-</p>
+            <h2>BS Information Technology Student</h2>
 
-<button class="editbtn" onclick="toggleEdit()">
-✏️ Edit My Profile
-</button>
+            <p>
+                Welcome to my digital profile. I am an enthusiastic
+                Information Technology student interested in technology,
+                web development, databases and learning new digital skills.
+            </p>
 
-</div>
+            <a href="#about" class="btn">Explore Profile</a>
+
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+
+        </div>
+
+
+        <div class="profile-area">
+
+            <!-- Replace profile.jpg with your picture -->
+            <img src="profile.jpg" alt="Profile Picture">
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<div id="editPanel">
-
-<h2>Edit Your Profile</h2>
-
-<label>Name</label>
-<input id="eName" placeholder="Your Name">
-
-<label>Degree / Semester</label>
-<input id="eDegree" placeholder="BS Information Technology — 5th Semester">
-
-<label>About Me</label>
-<textarea id="eAbout"></textarea>
-
-<label>Matriculation School</label>
-<input id="eMatric" placeholder="School name">
-
-<label>Intermediate College/School</label>
-<input id="eInter" placeholder="College/School name">
-
-<label>University</label>
-<input id="eUni" placeholder="University of Education">
-
-<label>Skills</label>
-<input id="eSkills" placeholder="HTML, CSS, SQL, Web Development">
-
-<label>Email</label>
-<input id="eEmail" placeholder="your@email.com">
-
-<button class="editbtn save" onclick="saveProfile()">
-Save Changes
-</button>
-
-<button class="editbtn reset" onclick="resetProfile()">
-Reset
-</button>
-
-</div>
-
-
+<!-- ABOUT -->
 <section id="about">
 
-<h2>About Me</h2>
+    <div class="section-title">
+        <h2>About Me</h2>
+        <p>Get to know me</p>
+    </div>
 
-<p class="about" id="aboutText">
-Write a short introduction about yourself here.
-</p>
+    <div class="about">
+
+        <p>
+            I am a dedicated BS Information Technology student with an
+            interest in web development, databases and modern technology.
+            I enjoy learning new skills and working on practical projects.
+            My goal is to improve my technical knowledge and build useful
+            digital solutions.
+        </p>
+
+    </div>
 
 </section>
 
 
+<!-- EDUCATION -->
 <section id="education">
 
-<h2>My Education</h2>
+    <div class="section-title">
+        <h2>Education</h2>
+        <p>My academic background</p>
+    </div>
 
-<div class="edu">
+    <div class="cards">
 
-<div class="card">
-<h3>🎓 Matriculation</h3>
-<p id="matric">Govt Girls Higher Secondary School</p>
-<span class="status">Completed</span>
-</div>
+        <div class="card">
+            <h3>BS Information Technology</h3>
+            <p>
+                University of Education<br>
+                Multan Campus
+            </p>
+            <p><strong>Program:</strong> 4-Year BS IT</p>
+        </div>
 
-<div class="card">
-<h3>📚 Intermediate</h3>
-<p id="inter">Govt Girls Higher Secondary School</p>
-<span class="status">Completed</span>
-</div>
+        <div class="card">
+            <h3>Intermediate</h3>
+            <p>
+                Higher Secondary Education
+            </p>
+        </div>
 
-<div class="card">
-<h3>💻 BS Information Technology</h3>
-<p id="uni">University of Education</p>
-<span class="status" id="degreeStatus">5th Semester</span>
-</div>
+        <div class="card">
+            <h3>Matriculation</h3>
+            <p>
+                Secondary School Education
+            </p>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
+<!-- SKILLS -->
 <section id="skills">
 
-<h2>My Skills</h2>
+    <div class="section-title">
+        <h2>My Skills</h2>
+        <p>Technical skills and areas of interest</p>
+    </div>
 
-<div class="skills" id="skillsBox"></div>
+    <div class="skills">
+
+        <div class="skill">
+            <div class="skill-name">
+                <span>HTML</span>
+                <span>85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width:85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">
+                <span>CSS</span>
+                <span>75%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width:75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">
+                <span>SQL / Database</span>
+                <span>70%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width:70%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">
+                <span>MS Office</span>
+                <span>80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width:80%"></div>
+            </div>
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- PROJECTS -->
+<section id="projects">
+
+    <div class="section-title">
+        <h2>My Projects</h2>
+        <p>Academic and personal projects</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="project-card">
+            <h3>Digital Profile Website</h3>
+            <p>
+                A responsive personal profile website developed using
+                HTML and CSS and hosted using GitHub Pages.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Database Project</h3>
+            <p>
+                An academic database project designed to practice
+                SQL, tables, queries and database management.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Web Development Practice</h3>
+            <p>
+                Practical exercises created to improve HTML, CSS and
+                front-end development skills.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+<section>
+
+    <div class="section-title">
+        <h2>Experience</h2>
+        <p>My practical experience</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Teaching Experience</h3>
+            <p>
+                Experience in teaching subjects including Mathematics,
+                English and Tarjamat-ul-Quran.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Academic Projects</h3>
+            <p>
+                Worked on academic projects related to Information
+                Technology, databases and web development.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
 <section id="contact">
 
-<h2>Contact Me</h2>
+    <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Let's connect</p>
+    </div>
 
-<p>
-📧 <strong>Email:</strong>
-<span id="email">your@email.com</span>
-</p>
+    <div class="contact-box">
+
+        <h2>Get In Touch</h2>
+
+        <p>📧 Email: memonaKousar32@gmail.com</p>
+
+        <p>💻 GitHub: github.com/yourusername</p>
+
+        <p>📍 Pakistan</p>
+
+        <br>
+
+        <a href="mailto:memonaKousar32@gmail.com" class="btn">
+            Send Email
+        </a>
+
+    </div>
 
 </section>
 
 
+<!-- FOOTER -->
 <footer>
-© 2026 <span id="footerName">Your Name</span> | Digital Profile
+
+    <p>
+        © 2026 <span>My Digital Profile</span> |
+        Designed & Developed with HTML & CSS
+    </p>
+
 </footer>
-
-
-<script>
-
-const defaults = {
-
-name:"Your Name",
-
-degree:"BS Information Technology — 5th Semester",
-
-about:"I am a BS Information Technology student interested in web development, databases and modern technology.",
-
-matric:"Govt Girls Higher Secondary School",
-
-inter:"Govt Girls Higher Secondary School",
-
-uni:"University of Education",
-
-skills:"HTML, CSS, SQL, Database Fundamentals, Web Development, MS Office",
-
-email:"memonakausar32@gmail.com"
-
-};
-
-
-function loadProfile(){
-
-const p =
-JSON.parse(localStorage.getItem("myProfile"))
-|| defaults;
-
-document.getElementById("navName").textContent=p.name;
-
-document.getElementById("heroName").textContent=p.name;
-
-document.getElementById("footerName").textContent=p.name;
-
-document.getElementById("degree").textContent=p.degree;
-
-document.getElementById("aboutText").textContent=p.about;
-
-document.getElementById("intro").textContent=p.about;
-
-document.getElementById("matric").textContent=p.matric;
-
-document.getElementById("inter").textContent=p.inter;
-
-document.getElementById("uni").textContent=p.uni;
-
-document.getElementById("email").textContent=p.email;
-
-document.getElementById("skillsBox").innerHTML =
-p.skills.split(",")
-.map(s=>`<div class="skill">${s.trim()}</div>`)
-.join("");
-
-document.getElementById("eName").value=p.name;
-document.getElementById("eDegree").value=p.degree;
-document.getElementById("eAbout").value=p.about;
-document.getElementById("eMatric").value=p.matric;
-document.getElementById("eInter").value=p.inter;
-document.getElementById("eUni").value=p.uni;
-document.getElementById("eSkills").value=p.skills;
-document.getElementById("eEmail").value=p.email;
-
-}
-
-
-function toggleEdit(){
-
-const panel=document.getElementById("editPanel");
-
-panel.style.display =
-panel.style.display==="block"
-? "none"
-: "block";
-
-}
-
-
-function saveProfile(){
-
-const p={
-
-name:document.getElementById("eName").value || defaults.name,
-
-degree:document.getElementById("eDegree").value || defaults.degree,
-
-about:document.getElementById("eAbout").value || defaults.about,
-
-matric:document.getElementById("eMatric").value || defaults.matric,
-
-inter:document.getElementById("eInter").value || defaults.inter,
-
-uni:document.getElementById("eUni").value || defaults.uni,
-
-skills:document.getElementById("eSkills").value || defaults.skills,
-
-email:document.getElementById("eEmail").value || defaults.email
-
-};
-
-localStorage.setItem(
-"myProfile",
-JSON.stringify(p)
-);
-
-loadProfile();
-
-document.getElementById("editPanel").style.display="none";
-
-alert("Profile updated successfully!");
-
-}
-
-
-function resetProfile(){
-
-localStorage.removeItem("myProfile");
-
-loadProfile();
-
-}
-
-
-loadProfile();
-
-</script>
 
 </body>
 </html>
