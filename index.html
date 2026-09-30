@@ -1,270 +1,979 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Memona Kousar | Digital Profile</title>
+<title>Memona Kousar | Digital Profile</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
 
-        body {
-            background: linear-gradient(135deg, #f5f0ff, #e8f0ff, #fff5f8);
-            color: #252b48;
-            min-height: 100vh;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
 
-        /* NAVBAR */
-        nav {
-            background: #202942;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        nav h2 {
-            color: white;
-        }
+body{
+    background:
+        radial-gradient(circle at 10% 20%, rgba(157,126,255,.25), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(255,150,220,.18), transparent 30%),
+        linear-gradient(135deg,#0f172a,#172554,#241044);
+    color:#f8fafc;
+    min-height:100vh;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 22px;
-        }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-        }
+/* NAVBAR */
 
-        nav ul li a:hover {
-            color: #d7a7ff;
-        }
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-        /* HERO */
-        .hero {
-            min-height: 520px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 50px 20px;
-        }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        .profile-container {
-            max-width: 850px;
-        }
+    padding:18px 7%;
 
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid white;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
-        }
+    background:rgba(15,23,42,.88);
+    backdrop-filter:blur(15px);
 
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            color: #202942;
-        }
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
 
-        .hero h3 {
-            color: #7454a6;
-            margin-bottom: 18px;
-            font-size: 21px;
-        }
+nav h2{
+    color:#ffffff;
+    letter-spacing:1px;
+}
 
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.8;
-            font-size: 17px;
-        }
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:22px;
+}
 
-        /* BUTTONS */
-        .buttons {
-            margin-top: 25px;
-        }
+nav ul li a{
+    color:#e2e8f0;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
 
-        button,
-        .upload-label {
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            background: #202942;
-            color: white;
-            cursor: pointer;
-            margin: 5px;
-            font-size: 14px;
-        }
+nav ul li a:hover{
+    color:#d8b4fe;
+}
 
-        button:hover,
-        .upload-label:hover {
-            background: #7454a6;
-        }
 
-        #imageUpload {
-            display: none;
-        }
+/* HERO */
 
-        /* SECTIONS */
-        section {
-            max-width: 1000px;
-            margin: 35px auto;
-            padding: 35px;
-            background: rgba(255,255,255,0.85);
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-        }
+.hero{
+    min-height:620px;
 
-        section h2 {
-            color: #202942;
-            margin-bottom: 20px;
-            font-size: 28px;
-            border-left: 5px solid #b58be0;
-            padding-left: 12px;
-        }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-        section p {
-            line-height: 1.8;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
+    text-align:center;
 
-        /* EDUCATION */
-        .education-card {
-            background: #f5f0ff;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 14px;
-            border-left: 5px solid #8e6bb8;
-        }
+    padding:70px 20px;
+}
 
-        .education-card h3 {
-            margin-bottom: 7px;
-            color: #202942;
-        }
+.profile-container{
+    max-width:850px;
+}
 
-        /* SKILLS */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+.profile-pic{
+    width:190px;
+    height:190px;
 
-        .skill {
-            background: #202942;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 20px;
-        }
+    object-fit:cover;
 
-        /* HOBBIES */
-        .hobbies {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
+    border-radius:50%;
 
-        .hobby {
-            background: #f5f0ff;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-            transition: 0.3s;
-        }
+    border:5px solid rgba(255,255,255,.8);
 
-        .hobby:hover {
-            transform: translateY(-5px);
-        }
+    box-shadow:
+        0 0 0 8px rgba(196,181,253,.10),
+        0 15px 45px rgba(0,0,0,.4);
 
-        /* CONTACT */
-        .contact-box {
-            line-height: 2.2;
-            font-size: 17px;
-        }
+    margin-bottom:25px;
+}
 
-        /* EDIT PANEL */
-        #editPanel {
-            display: none;
-        }
+.hero h1{
+    font-size:48px;
+    margin-bottom:10px;
+    color:white;
+}
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0 15px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            font-size: 15px;
-        }
+.hero h3{
+    color:#d8b4fe;
+    font-size:21px;
+    margin-bottom:20px;
+}
 
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
+.hero p{
+    max-width:720px;
+    margin:auto;
 
-        label {
-            font-weight: bold;
-        }
+    line-height:1.8;
+    color:#cbd5e1;
+    font-size:17px;
+}
 
-        /* FOOTER */
-        footer {
-            background: #202942;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-        }
 
-        /* MOBILE */
-        @media(max-width: 700px) {
+/* BUTTONS */
 
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
+.buttons{
+    margin-top:30px;
+}
 
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+button,
+.upload-label{
+    display:inline-block;
 
-            .hero h1 {
-                font-size: 32px;
-            }
+    padding:12px 22px;
 
-            section {
-                margin: 20px 12px;
-                padding: 25px;
-            }
-        }
-    </style>
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
+
+    color:white;
+
+    cursor:pointer;
+
+    margin:5px;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+button:hover,
+.upload-label:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(168,85,247,.35);
+}
+
+#imageUpload{
+    display:none;
+}
+
+
+/* SECTIONS */
+
+section{
+    max-width:1000px;
+
+    margin:35px auto;
+
+    padding:40px;
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:24px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.20);
+}
+
+section h2{
+    color:#e9d5ff;
+
+    font-size:29px;
+
+    margin-bottom:22px;
+
+    border-left:5px solid #a855f7;
+
+    padding-left:14px;
+}
+
+section p{
+    line-height:1.9;
+    color:#dbeafe;
+    margin-bottom:15px;
+}
+
+
+/* EDUCATION */
+
+.education-card{
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    padding:22px;
+
+    margin:15px 0;
+
+    border-radius:16px;
+
+    transition:.3s;
+}
+
+.education-card:hover{
+    transform:translateX(6px);
+    background:rgba(168,85,247,.10);
+}
+
+.education-card h3{
+    color:#f5d0fe;
+    margin-bottom:8px;
+}
+
+
+/* SKILLS */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill{
+    padding:11px 18px;
+
+    background:rgba(168,85,247,.16);
+
+    border:1px solid rgba(216,180,254,.25);
+
+    color:#f3e8ff;
+
+    border-radius:25px;
+
+    transition:.3s;
+}
+
+.skill:hover{
+    background:#7c3aed;
+    transform:translateY(-3px);
+}
+
+
+/* HOBBIES */
+
+.hobbies{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(200px,1fr));
+
+    gap:18px;
+}
+
+.hobby{
+    padding:25px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:18px;
+
+    color:#f1f5f9;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.hobby:hover{
+    transform:translateY(-6px);
+    background:rgba(168,85,247,.15);
+}
+
+
+/* CONTACT */
+
+.contact-box{
+    display:grid;
+    gap:16px;
+}
+
+.contact-item{
+    padding:18px;
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-item strong{
+    color:#e9d5ff;
+}
+
+.contact-item span{
+    color:#cbd5e1;
+}
+
+
+/* EDIT PANEL */
+
+#editPanel{
+    display:none;
+}
+
+input,
+textarea{
+    width:100%;
+
+    padding:13px;
+
+    margin:8px 0 18px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#c084fc;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+label{
+    color:#e9d5ff;
+    font-weight:600;
+}
+
+
+/* FOOTER */
+
+footer{
+    margin-top:70px;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:rgba(15,23,42,.9);
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    color:#cbd5e1;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero h3{
+        font-size:18px;
+    }
+
+    section{
+        margin:20px 12px;
+        padding:25px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
+
 <!-- NAVIGATION -->
+
 <nav>
+
     <h2>My Digital Profile</h2>
 
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+
+    <div class="profile-container">
+
+        <img
+            id="profileImage"
+            class="profile-pic"
+            src=""
+            alt="Profile Picture"
+            style="display:none;"
+        >
+
+        <h1 id="name">
+            Memona Kousar
+        </h1>
+
+        <h3 id="degree">
+            BS Information Technology — 5th Semester
+        </h3>
+
+        <p id="shortIntro">
+            Welcome to my digital profile. I am a passionate
+            Information Technology student interested in technology,
+            web development, databases and modern digital solutions.
+        </p>
+
+        <div class="buttons">
+
+            <label
+                class="upload-label"
+                for="imageUpload">
+                📷 Upload / Change Picture
+            </label>
+
+            <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+            >
+
+            <button onclick="showEditPanel()">
+                ✏️ Edit My Profile
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p id="aboutText">
+        I am a passionate and hardworking BS Information Technology
+        student at the University of Education. I am interested in
+        web development, databases, information technology and
+        modern digital solutions.
+    </p>
+
+    <p>
+        I enjoy learning new technologies and improving my technical
+        skills through practical projects. I am always interested in
+        exploring new ideas, solving problems and gaining knowledge.
+    </p>
+
+    <p>
+        My goal is to develop strong professional skills, gain
+        practical experience and build a successful career in the
+        field of Information Technology. I believe that continuous
+        learning, creativity and hard work are important for
+        personal and professional growth.
+    </p>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="education-card">
+
+        <h3>Matriculation</h3>
+
+        <p>
+            Govt Girls Higher Secondary School
+        </p>
+
+    </div>
+
+
+    <div class="education-card">
+
+        <h3>Intermediate</h3>
+
+        <p>
+            Govt Girls Higher Secondary School
+        </p>
+
+    </div>
+
+
+    <div class="education-card">
+
+        <h3>BS Information Technology</h3>
+
+        <p>
+            University of Education
+        </p>
+
+        <p>
+            5th Semester
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill">HTML</div>
+
+        <div class="skill">CSS</div>
+
+        <div class="skill">SQL</div>
+
+        <div class="skill">
+            Database Fundamentals
+        </div>
+
+        <div class="skill">
+            Web Development
+        </div>
+
+        <div class="skill">
+            MS Office
+        </div>
+
+        <div class="skill">
+            Computer Skills
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOBBIES -->
+
+<section id="hobbies">
+
+    <h2>My Hobbies</h2>
+
+    <div class="hobbies">
+
+        <div class="hobby">
+            📚<br><br>
+            Reading & Learning
+        </div>
+
+        <div class="hobby">
+            💻<br><br>
+            Exploring Technology
+        </div>
+
+        <div class="hobby">
+            🎨<br><br>
+            Creative Activities
+        </div>
+
+        <div class="hobby">
+            🌐<br><br>
+            Learning Web Development
+        </div>
+
+        <div class="hobby">
+            📸<br><br>
+            Photography
+        </div>
+
+        <div class="hobby">
+            🎧<br><br>
+            Listening to Music
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <div class="contact-box">
+
+        <div class="contact-item">
+
+            📧 <strong>Email:</strong><br>
+
+            <span>
+                memonakousar32@gmail.com
+            </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            📍 <strong>Address:</strong><br>
+
+            <span>
+                Multan, Punjab, Pakistan
+            </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            🎓 <strong>University:</strong><br>
+
+            <span>
+                University of Education
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDIT PROFILE -->
+
+<section id="editPanel">
+
+    <h2>Edit My Profile</h2>
+
+
+    <label>Name</label>
+
+    <input
+        type="text"
+        id="editName"
+        value="Memona Kousar"
+    >
+
+
+    <label>Degree / Semester</label>
+
+    <input
+        type="text"
+        id="editDegree"
+        value="BS Information Technology — 5th Semester"
+    >
+
+
+    <label>Short Introduction</label>
+
+    <textarea id="editIntro">Welcome to my digital profile. I am a passionate Information Technology student interested in technology, web development, databases and modern digital solutions.</textarea>
+
+
+    <label>About Me</label>
+
+    <textarea id="editAbout">I am a passionate and hardworking BS Information Technology student at the University of Education. I am interested in web development, databases, information technology and modern digital solutions. I enjoy learning new technologies and improving my technical skills through practical projects.</textarea>
+
+
+    <label>Email</label>
+
+    <input
+        type="email"
+        id="editEmail"
+        value="memonakousar32@gmail.com"
+    >
+
+
+    <label>Address</label>
+
+    <input
+        type="text"
+        id="editAddress"
+        value="Multan, Punjab, Pakistan"
+    >
+
+
+    <button onclick="saveProfile()">
+        💾 Save Changes
+    </button>
+
+    <button onclick="resetProfile()">
+        🔄 Reset
+    </button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Memona Kousar | Digital Profile
+    </p>
+
+</footer>
+
+
+<script>
+
+
+/* PROFILE PICTURE */
+
+const imageUpload =
+    document.getElementById("imageUpload");
+
+const profileImage =
+    document.getElementById("profileImage");
+
+
+imageUpload.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(file){
+
+        const reader =
+            new FileReader();
+
+        reader.onload = function(e){
+
+            profileImage.src =
+                e.target.result;
+
+            profileImage.style.display =
+                "inline-block";
+
+            localStorage.setItem(
+                "profileImage",
+                e.target.result
+            );
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+
+});
+
+
+/* LOAD PROFILE IMAGE */
+
+const savedImage =
+    localStorage.getItem("profileImage");
+
+if(savedImage){
+
+    profileImage.src =
+        savedImage;
+
+    profileImage.style.display =
+        "inline-block";
+
+}
+
+
+/* EDIT PANEL */
+
+function showEditPanel(){
+
+    const panel =
+        document.getElementById("editPanel");
+
+    panel.style.display =
+        "block";
+
+    panel.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* SAVE PROFILE */
+
+function saveProfile(){
+
+    const name =
+        document.getElementById("editName").value;
+
+    const degree =
+        document.getElementById("editDegree").value;
+
+    const intro =
+        document.getElementById("editIntro").value;
+
+    const about =
+        document.getElementById("editAbout").value;
+
+    const email =
+        document.getElementById("editEmail").value;
+
+    const address =
+        document.getElementById("editAddress").value;
+
+
+    document.getElementById("name").innerText =
+        name;
+
+    document.getElementById("degree").innerText =
+        degree;
+
+    document.getElementById("shortIntro").innerText =
+        intro;
+
+    document.getElementById("aboutText").innerText =
+        about;
+
+
+    localStorage.setItem("name",name);
+
+    localStorage.setItem("degree",degree);
+
+    localStorage.setItem("intro",intro);
+
+    localStorage.setItem("about",about);
+
+    localStorage.setItem("email",email);
+
+    localStorage.setItem("address",address);
+
+
+    alert("Profile updated successfully!");
+
+    document.getElementById("editPanel")
+        .style.display="none";
+
+}
+
+
+/* RESET */
+
+function resetProfile(){
+
+    localStorage.clear();
+
+    location.reload();
+
+}
+
+
+/* LOAD SAVED DATA */
+
+window.onload=function(){
+
+    if(localStorage.getItem("name")){
+
+        document.getElementById("name").innerText =
+            localStorage.getItem("name");
+
+        document.getElementById("editName").value =
+            localStorage.getItem("name");
+
+    }
+
+
+    if(localStorage.getItem("degree")){
+
+        document.getElementById("degree").innerText =
+            localStorage.getItem("degree");
+
+        document.getElementById("editDegree").value =
+            localStorage.getItem("degree");
+
+    }
+
+
+    if(localStorage.getItem("intro")){
+
+        document.getElementById("shortIntro").innerText =
+            localStorage.getItem("intro");
+
+        document.getElementById("editIntro").value =
+            localStorage.getItem("intro");
+
+    }
+
+
+    if(localStorage.getItem("about")){
+
+        document.getElementById("aboutText").innerText =
+            localStorage.getItem("about");
+
+        document.getElementById("editAbout").value =
+            localStorage.getItem("about");
+
+    }
+
+
+    if(localStorage.getItem("email")){
+
+        document.getElementById("editEmail").value =
+            localStorage.getItem("email");
+
+    }
+
+
+    if(localStorage.getItem("address")){
+
+        document.getElementById("editAddress").value =
+            localStorage.getItem("address");
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
