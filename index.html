@@ -1,602 +1,856 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memona Kousar | Digital Profile</title>
 
-    <title>My Digital Profile | BS Information Technology</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+body{
+    font-family:Arial,sans-serif;
+    color:#283452;
+    background:
+        radial-gradient(circle at 10% 10%,#eadfff,transparent 30%),
+        radial-gradient(circle at 90% 90%,#d7f6ef,transparent 30%),
+        linear-gradient(135deg,#faf8ff,#edf6ff);
+    min-height:100vh;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f8fc;
-            color: #202942;
-            line-height: 1.6;
-        }
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#202b50ee;
+    backdrop-filter:blur(10px);
+}
 
-        /* NAVBAR */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #202942;
-            padding: 16px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
-        }
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
 
-        .logo {
-            color: white;
-            font-size: 23px;
-            font-weight: bold;
-        }
+.logo span{
+    color:#c9a5ff;
+}
 
-        .logo span {
-            color: #c79bea;
-        }
+nav ul{
+    display:flex;
+    gap:24px;
+    list-style:none;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-            transition: 0.3s;
-        }
+nav a:hover{
+    color:#c9a5ff;
+}
 
-        nav ul li a:hover {
-            color: #c79bea;
-        }
+/* HERO */
+.hero{
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 20px;
+}
 
-        /* HERO */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 60px 8%;
-            background: linear-gradient(135deg, #faf8ff, #eee7fa);
-        }
+.hero-box{
+    max-width:950px;
+    width:100%;
+    text-align:center;
+    padding:55px 35px;
+    border-radius:35px;
+    background:#ffffffbd;
+    backdrop-filter:blur(15px);
+    box-shadow:0 25px 70px #34305a20;
+}
 
-        .hero-container {
-            max-width: 1100px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
+/* PROFILE PHOTO */
+.profile{
+    position:relative;
+    width:175px;
+    height:175px;
+    margin:0 auto 20px;
+}
 
-        .hero-text {
-            flex: 1;
-        }
+.profile img{
+    width:175px;
+    height:175px;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid white;
+    background:#eee8ff;
+    box-shadow:0 12px 35px #3e346020;
+}
 
-        .hero-text h4 {
-            color: #7650a8;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+.camera{
+    position:absolute;
+    right:2px;
+    bottom:3px;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:50%;
+    background:#7654c7;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
 
-        .hero-text h1 {
-            font-size: 48px;
-            color: #202942;
-            margin-bottom: 10px;
-        }
+#photoInput{
+    display:none;
+}
 
-        .hero-text h1 span {
-            color: #8a5bb8;
-        }
+.photo-text{
+    font-size:13px;
+    color:#777;
+    margin-bottom:18px;
+}
 
-        .hero-text h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #555;
-        }
+.tag{
+    color:#7654c7;
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:bold;
+}
 
-        .hero-text p {
-            font-size: 17px;
-            color: #666;
-            max-width: 600px;
-            margin-bottom: 25px;
-        }
+h1{
+    font-family:Georgia,serif;
+    font-size:56px;
+    margin:12px 0;
+    color:#222b4b;
+}
 
-        .btn {
-            display: inline-block;
-            background: #202942;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-right: 10px;
-            transition: 0.3s;
-        }
+h1 span{
+    color:#7654c7;
+}
 
-        .btn:hover {
-            background: #7650a8;
-            transform: translateY(-2px);
-        }
+.hero h2{
+    color:#40577f;
+    font-size:22px;
+    margin-bottom:15px;
+}
 
-        .btn-outline {
-            background: transparent;
-            color: #202942;
-            border: 2px solid #202942;
-        }
+.hero-description{
+    max-width:700px;
+    margin:auto;
+    color:#60697c;
+    font-size:17px;
+    line-height:1.7;
+}
 
-        .btn-outline:hover {
-            color: white;
-        }
+/* BUTTON */
+.edit-btn{
+    margin-top:25px;
+    padding:13px 28px;
+    border:0;
+    border-radius:30px;
+    background:linear-gradient(135deg,#7654c7,#5186d9);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-        /* PROFILE IMAGE */
-        .profile-area {
-            flex: 0 0 330px;
-            text-align: center;
-        }
+/* SECTIONS */
+.content{
+    max-width:1050px;
+    margin:25px auto;
+    padding:45px 7%;
+    background:#ffffffdf;
+    border-radius:30px;
+    box-shadow:0 15px 45px #282d5015;
+}
 
-        .profile-area img {
-            width: 300px;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(32,41,66,0.25);
-            border: 6px solid white;
-        }
+.content h2{
+    font-family:Georgia,serif;
+    color:#304a78;
+    font-size:32px;
+    margin-bottom:20px;
+}
 
-        /* SECTIONS */
-        section {
-            padding: 80px 8%;
-        }
+.about{
+    color:#60697a;
+    font-size:17px;
+    line-height:1.8;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
+/* EDUCATION */
+.education{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
 
-        .section-title h2 {
-            font-size: 32px;
-            color: #202942;
-        }
+.card{
+    padding:25px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#faf6ff,#f0f8ff);
+    border:1px solid #e0e4f2;
+}
 
-        .section-title p {
-            color: #777;
-            margin-top: 8px;
-        }
+.card h3{
+    color:#38547f;
+    margin-bottom:10px;
+}
 
-        /* ABOUT */
-        .about {
-            max-width: 1000px;
-            margin: auto;
-            text-align: center;
-            font-size: 17px;
-            color: #555;
-        }
+.card p{
+    color:#646b7c;
+}
 
-        /* EDUCATION */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: auto;
-        }
+.badge{
+    display:inline-block;
+    margin-top:12px;
+    padding:5px 13px;
+    border-radius:20px;
+    background:#e9e1ff;
+    color:#6546a3;
+    font-size:12px;
+    font-weight:bold;
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
+/* SKILLS */
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
 
-        .card:hover {
-            transform: translateY(-7px);
-        }
+.skill{
+    padding:10px 18px;
+    border-radius:25px;
+    background:#eeeaff;
+    color:#4b3c7b;
+    font-weight:bold;
+}
 
-        .card h3 {
-            color: #7650a8;
-            margin-bottom: 10px;
-        }
+/* CONTACT */
+.contact{
+    padding:20px;
+    border-radius:20px;
+    background:#f7f8ff;
+}
 
-        .card p {
-            color: #666;
-        }
+.contact p{
+    margin:10px 0;
+    color:#596176;
+}
 
-        /* SKILLS */
-        .skills {
-            max-width: 1000px;
-            margin: auto;
-        }
+/* EDIT PANEL */
+#editPanel{
+    display:none;
+    max-width:1050px;
+    margin:25px auto;
+    padding:35px 7%;
+    background:white;
+    border-radius:30px;
+    box-shadow:0 15px 45px #282d5015;
+}
 
-        .skill {
-            margin-bottom: 20px;
-        }
+#editPanel h2{
+    color:#304a78;
+    margin-bottom:15px;
+}
 
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 7px;
-            font-weight: bold;
-        }
+label{
+    display:block;
+    margin-top:14px;
+    font-weight:bold;
+    color:#40577f;
+}
 
-        .skill-bar {
-            height: 10px;
-            background: #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border:1px solid #d4d9e8;
+    border-radius:10px;
+    font-size:15px;
+}
 
-        .skill-progress {
-            height: 100%;
-            background: #7650a8;
-            border-radius: 10px;
-        }
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
 
-        /* PROJECTS */
-        .project-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
+.save{
+    background:#2f8b82;
+}
 
-        .project-card h3 {
-            color: #202942;
-            margin-bottom: 10px;
-        }
+.reset{
+    background:#777;
+    margin-left:8px;
+}
 
-        .project-card p {
-            color: #666;
-        }
+/* FOOTER */
+footer{
+    margin-top:45px;
+    padding:28px;
+    text-align:center;
+    background:#202b50;
+    color:white;
+}
 
-        /* CONTACT */
-        .contact-box {
-            max-width: 800px;
-            margin: auto;
-            background: #202942;
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-        }
+/* MOBILE */
+@media(max-width:750px){
 
-        .contact-box p {
-            margin: 12px 0;
-        }
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
 
-        /* FOOTER */
-        footer {
-            background: #151b2d;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:13px;
+    }
 
-        footer span {
-            color: #c79bea;
-        }
+    h1{
+        font-size:40px;
+    }
 
-        /* MOBILE */
-        @media (max-width: 768px) {
+    .hero-box{
+        padding:40px 20px;
+    }
 
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
+    .education{
+        grid-template-columns:1fr;
+    }
 
-            nav ul {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero-container {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 36px;
-            }
-
-            .profile-area img {
-                width: 250px;
-                height: 300px;
-            }
-        }
-    </style>
+    .content{
+        margin:18px 12px;
+        padding:35px 22px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
 <nav>
-    <div class="logo">My<span>Profile</span></div>
 
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<div class="logo">
+Memona <span>Kousar</span>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- HOME -->
 <section class="hero" id="home">
 
-    <div class="hero-container">
+<div class="hero-box">
 
-        <div class="hero-text">
+<div class="profile">
 
-            <h4>Hello, I'm</h4>
+<img id="profileImage"
+     src=""
+     alt="Memona Kousar Profile Picture">
 
-            <h1><span>Memona Kousar</span></h1>
+<button class="camera"
+        onclick="document.getElementById('photoInput').click()">
+📷
+</button>
 
-            <h2>BS Information Technology Student</h2>
+<input type="file"
+       id="photoInput"
+       accept="image/*"
+       onchange="changePhoto(event)">
 
-            <p>
-                Welcome to my digital profile. I am an enthusiastic
-                Information Technology student interested in technology,
-                web development, databases and learning new digital skills.
-            </p>
+</div>
 
-            <a href="#about" class="btn">Explore Profile</a>
+<div class="photo-text">
+Click 📷 to add or change your profile picture
+</div>
 
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
+<div class="tag">
+WELCOME TO MY DIGITAL PROFILE
+</div>
 
-        </div>
+<h1>
+Hello, I'm <span id="nameDisplay">Memona Kousar</span>
+</h1>
 
+<h2 id="degreeDisplay">
+BS Information Technology — 5th Semester
+</h2>
 
-        <div class="profile-area">
+<p class="hero-description" id="aboutDisplay">
+I am a BS Information Technology student interested in
+web development, databases and modern technology.
+I enjoy learning new skills and creating practical digital projects.
+</p>
 
-            <!-- Replace profile.jpg with your picture -->
-            <img src="profile.jpg" alt="Profile Picture">
+<button class="edit-btn" onclick="toggleEdit()">
+✏️ Edit My Profile
+</button>
 
-        </div>
-
-    </div>
-
+</div>
 </section>
 
 
+<!-- EDIT PROFILE -->
+<div id="editPanel">
+
+<h2>✏️ Edit My Profile</h2>
+
+<label>Name</label>
+<input id="nameInput" value="Memona Kousar">
+
+<label>Degree / Semester</label>
+<input id="degreeInput"
+value="BS Information Technology — 5th Semester">
+
+<label>About Me</label>
+<textarea id="aboutInput">I am a BS Information Technology student interested in web development, databases and modern technology. I enjoy learning new skills and creating practical digital projects.</textarea>
+
+<label>Matriculation</label>
+<input id="matricInput"
+value="Govt Girls Higher Secondary School">
+
+<label>Intermediate</label>
+<input id="interInput"
+value="Govt Girls Higher Secondary School">
+
+<label>University</label>
+<input id="uniInput"
+value="University of Education">
+
+<label>Skills</label>
+<input id="skillsInput"
+value="HTML, CSS, SQL, Database Fundamentals, Web Development, MS Office">
+
+<label>Email</label>
+<input id="emailInput"
+value="memonakousar32@gmail.com">
+
+<button class="edit-btn save" onclick="saveProfile()">
+💾 Save Changes
+</button>
+
+<button class="edit-btn reset" onclick="resetProfile()">
+Reset
+</button>
+
+</div>
+
+
 <!-- ABOUT -->
-<section id="about">
+<section class="content" id="about">
 
-    <div class="section-title">
-        <h2>About Me</h2>
-        <p>Get to know me</p>
-    </div>
+<h2>About Me</h2>
 
-    <div class="about">
-
-        <p>
-            I am a dedicated BS Information Technology student with an
-            interest in web development, databases and modern technology.
-            I enjoy learning new skills and working on practical projects.
-            My goal is to improve my technical knowledge and build useful
-            digital solutions.
-        </p>
-
-    </div>
+<p class="about" id="aboutSection">
+I am a BS Information Technology student interested in
+web development, databases and modern technology.
+I enjoy learning new skills and creating practical digital projects.
+</p>
 
 </section>
 
 
 <!-- EDUCATION -->
-<section id="education">
+<section class="content" id="education">
 
-    <div class="section-title">
-        <h2>Education</h2>
-        <p>My academic background</p>
-    </div>
+<h2>Education</h2>
 
-    <div class="cards">
+<div class="education">
 
-        <div class="card">
-            <h3>BS Information Technology</h3>
-            <p>
-                University of Education<br>
-                Multan Campus
-            </p>
-            <p><strong>Program:</strong> 4-Year BS IT</p>
-        </div>
+<div class="card">
 
-        <div class="card">
-            <h3>Intermediate</h3>
-            <p>
-                Higher Secondary Education
-            </p>
-        </div>
+<h3>🎓 Matriculation</h3>
 
-        <div class="card">
-            <h3>Matriculation</h3>
-            <p>
-                Secondary School Education
-            </p>
-        </div>
+<p id="matricDisplay">
+Govt Girls Higher Secondary School
+</p>
 
-    </div>
+<span class="badge">
+Completed
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h3>📚 Intermediate</h3>
+
+<p id="interDisplay">
+Govt Girls Higher Secondary School
+</p>
+
+<span class="badge">
+Completed
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h3>💻 BS Information Technology</h3>
+
+<p id="uniDisplay">
+University of Education
+</p>
+
+<span class="badge">
+5th Semester
+</span>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- SKILLS -->
-<section id="skills">
+<section class="content" id="skills">
 
-    <div class="section-title">
-        <h2>My Skills</h2>
-        <p>Technical skills and areas of interest</p>
-    </div>
+<h2>My Skills</h2>
 
-    <div class="skills">
+<div class="skills" id="skillsDisplay">
 
-        <div class="skill">
-            <div class="skill-name">
-                <span>HTML</span>
-                <span>85%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width:85%"></div>
-            </div>
-        </div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">SQL</div>
+<div class="skill">Database Fundamentals</div>
+<div class="skill">Web Development</div>
+<div class="skill">MS Office</div>
 
-        <div class="skill">
-            <div class="skill-name">
-                <span>CSS</span>
-                <span>75%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width:75%"></div>
-            </div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-name">
-                <span>SQL / Database</span>
-                <span>70%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width:70%"></div>
-            </div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-name">
-                <span>MS Office</span>
-                <span>80%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width:80%"></div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PROJECTS -->
-<section id="projects">
-
-    <div class="section-title">
-        <h2>My Projects</h2>
-        <p>Academic and personal projects</p>
-    </div>
-
-    <div class="cards">
-
-        <div class="project-card">
-            <h3>Digital Profile Website</h3>
-            <p>
-                A responsive personal profile website developed using
-                HTML and CSS and hosted using GitHub Pages.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h3>Database Project</h3>
-            <p>
-                An academic database project designed to practice
-                SQL, tables, queries and database management.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h3>Web Development Practice</h3>
-            <p>
-                Practical exercises created to improve HTML, CSS and
-                front-end development skills.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- EXPERIENCE -->
-<section>
-
-    <div class="section-title">
-        <h2>Experience</h2>
-        <p>My practical experience</p>
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Teaching Experience</h3>
-            <p>
-                Experience in teaching subjects including Mathematics,
-                English and Tarjamat-ul-Quran.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Academic Projects</h3>
-            <p>
-                Worked on academic projects related to Information
-                Technology, databases and web development.
-            </p>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 <!-- CONTACT -->
-<section id="contact">
+<section class="content" id="contact">
 
-    <div class="section-title">
-        <h2>Contact Me</h2>
-        <p>Let's connect</p>
-    </div>
+<h2>Contact Me</h2>
 
-    <div class="contact-box">
+<div class="contact">
 
-        <h2>Get In Touch</h2>
+<p>
+📧 <strong>Email:</strong>
+<span id="emailDisplay">memonakousar32@gmail.com</span>
+</p>
 
-        <p>📧 Email: memonaKousar32@gmail.com</p>
+<p>
+💻 <strong>Field:</strong>
+Information Technology
+</p>
 
-        <p>💻 GitHub: github.com/yourusername</p>
-
-        <p>📍 Pakistan</p>
-
-        <br>
-
-        <a href="mailto:memonaKousar32@gmail.com" class="btn">
-            Send Email
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- FOOTER -->
 <footer>
-
-    <p>
-        © 2026 <span>My Digital Profile</span> |
-        Designed & Developed with HTML & CSS
-    </p>
-
+© 2026 Memona Kousar | Digital Profile
 </footer>
+
+
+<script>
+
+/* PROFILE PICTURE */
+
+function changePhoto(event){
+
+    const file = event.target.files[0];
+
+    if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            document.getElementById("profileImage").src =
+            e.target.result;
+
+            localStorage.setItem(
+                "profilePhoto",
+                e.target.result
+            );
+
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+
+
+/* LOAD PHOTO */
+
+const savedPhoto =
+localStorage.getItem("profilePhoto");
+
+if(savedPhoto){
+
+    document.getElementById("profileImage").src =
+    savedPhoto;
+
+}
+
+
+/* OPEN/CLOSE EDIT */
+
+function toggleEdit(){
+
+    const panel =
+    document.getElementById("editPanel");
+
+    if(panel.style.display === "block"){
+
+        panel.style.display = "none";
+
+    }else{
+
+        panel.style.display = "block";
+
+        panel.scrollIntoView({
+            behavior:"smooth"
+        });
+    }
+}
+
+
+/* SAVE PROFILE */
+
+function saveProfile(){
+
+    const name =
+    document.getElementById("nameInput").value;
+
+    const degree =
+    document.getElementById("degreeInput").value;
+
+    const about =
+    document.getElementById("aboutInput").value;
+
+    const matric =
+    document.getElementById("matricInput").value;
+
+    const inter =
+    document.getElementById("interInput").value;
+
+    const uni =
+    document.getElementById("uniInput").value;
+
+    const skills =
+    document.getElementById("skillsInput").value;
+
+    const email =
+    document.getElementById("emailInput").value;
+
+
+    localStorage.setItem("name",name);
+    localStorage.setItem("degree",degree);
+    localStorage.setItem("about",about);
+    localStorage.setItem("matric",matric);
+    localStorage.setItem("inter",inter);
+    localStorage.setItem("uni",uni);
+    localStorage.setItem("skills",skills);
+    localStorage.setItem("email",email);
+
+
+    document.getElementById("nameDisplay").textContent =
+    name;
+
+    document.getElementById("degreeDisplay").textContent =
+    degree;
+
+    document.getElementById("aboutDisplay").textContent =
+    about;
+
+    document.getElementById("aboutSection").textContent =
+    about;
+
+    document.getElementById("matricDisplay").textContent =
+    matric;
+
+    document.getElementById("interDisplay").textContent =
+    inter;
+
+    document.getElementById("uniDisplay").textContent =
+    uni;
+
+    document.getElementById("emailDisplay").textContent =
+    email;
+
+
+    const skillArray =
+    skills.split(",");
+
+    const box =
+    document.getElementById("skillsDisplay");
+
+    box.innerHTML = "";
+
+    skillArray.forEach(function(skill){
+
+        const div =
+        document.createElement("div");
+
+        div.className = "skill";
+
+        div.textContent = skill.trim();
+
+        box.appendChild(div);
+
+    });
+
+
+    document.getElementById("editPanel")
+    .style.display = "none";
+
+    alert("Profile updated successfully!");
+
+}
+
+
+/* RESET */
+
+function resetProfile(){
+
+    localStorage.clear();
+
+    location.reload();
+
+}
+
+
+/* LOAD SAVED DATA */
+
+window.onload = function(){
+
+    const name =
+    localStorage.getItem("name");
+
+    const degree =
+    localStorage.getItem("degree");
+
+    const about =
+    localStorage.getItem("about");
+
+    const matric =
+    localStorage.getItem("matric");
+
+    const inter =
+    localStorage.getItem("inter");
+
+    const uni =
+    localStorage.getItem("uni");
+
+    const skills =
+    localStorage.getItem("skills");
+
+    const email =
+    localStorage.getItem("email");
+
+
+    if(name){
+
+        document.getElementById("nameInput").value = name;
+
+        document.getElementById("nameDisplay").textContent = name;
+    }
+
+    if(degree){
+
+        document.getElementById("degreeInput").value = degree;
+
+        document.getElementById("degreeDisplay").textContent = degree;
+    }
+
+    if(about){
+
+        document.getElementById("aboutInput").value = about;
+
+        document.getElementById("aboutDisplay").textContent = about;
+
+        document.getElementById("aboutSection").textContent = about;
+    }
+
+    if(matric){
+
+        document.getElementById("matricInput").value = matric;
+
+        document.getElementById("matricDisplay").textContent = matric;
+    }
+
+    if(inter){
+
+        document.getElementById("interInput").value = inter;
+
+        document.getElementById("interDisplay").textContent = inter;
+    }
+
+    if(uni){
+
+        document.getElementById("uniInput").value = uni;
+
+        document.getElementById("uniDisplay").textContent = uni;
+    }
+
+    if(email){
+
+        document.getElementById("emailInput").value = email;
+
+        document.getElementById("emailDisplay").textContent = email;
+    }
+
+    if(skills){
+
+        document.getElementById("skillsInput").value = skills;
+
+        const box =
+        document.getElementById("skillsDisplay");
+
+        box.innerHTML = "";
+
+        skills.split(",").forEach(function(skill){
+
+            const div =
+            document.createElement("div");
+
+            div.className = "skill";
+
+            div.textContent = skill.trim();
+
+            box.appendChild(div);
+
+        });
+    }
+
+};
+
+</script>
 
 </body>
 </html>
