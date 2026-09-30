@@ -1,856 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Memona Kousar | Digital Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+    <title>Memona Kousar | Digital Profile</title>
 
-body{
-    font-family:Arial,sans-serif;
-    color:#283452;
-    background:
-        radial-gradient(circle at 10% 10%,#eadfff,transparent 30%),
-        radial-gradient(circle at 90% 90%,#d7f6ef,transparent 30%),
-        linear-gradient(135deg,#faf8ff,#edf6ff);
-    min-height:100vh;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-/* NAVBAR */
-nav{
-    position:sticky;
-    top:0;
-    z-index:100;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#202b50ee;
-    backdrop-filter:blur(10px);
-}
+        body {
+            background: linear-gradient(135deg, #f5f0ff, #e8f0ff, #fff5f8);
+            color: #252b48;
+            min-height: 100vh;
+        }
 
-.logo{
-    color:white;
-    font-size:24px;
-    font-weight:bold;
-}
+        /* NAVBAR */
+        nav {
+            background: #202942;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.logo span{
-    color:#c9a5ff;
-}
+        nav h2 {
+            color: white;
+        }
 
-nav ul{
-    display:flex;
-    gap:24px;
-    list-style:none;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
 
-nav a:hover{
-    color:#c9a5ff;
-}
+        nav ul li a:hover {
+            color: #d7a7ff;
+        }
 
-/* HERO */
-.hero{
-    min-height:88vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:60px 20px;
-}
+        /* HERO */
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-.hero-box{
-    max-width:950px;
-    width:100%;
-    text-align:center;
-    padding:55px 35px;
-    border-radius:35px;
-    background:#ffffffbd;
-    backdrop-filter:blur(15px);
-    box-shadow:0 25px 70px #34305a20;
-}
+        .profile-container {
+            max-width: 850px;
+        }
 
-/* PROFILE PHOTO */
-.profile{
-    position:relative;
-    width:175px;
-    height:175px;
-    margin:0 auto 20px;
-}
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
 
-.profile img{
-    width:175px;
-    height:175px;
-    object-fit:cover;
-    border-radius:50%;
-    border:6px solid white;
-    background:#eee8ff;
-    box-shadow:0 12px 35px #3e346020;
-}
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #202942;
+        }
 
-.camera{
-    position:absolute;
-    right:2px;
-    bottom:3px;
-    width:48px;
-    height:48px;
-    border:0;
-    border-radius:50%;
-    background:#7654c7;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-}
+        .hero h3 {
+            color: #7454a6;
+            margin-bottom: 18px;
+            font-size: 21px;
+        }
 
-#photoInput{
-    display:none;
-}
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+        }
 
-.photo-text{
-    font-size:13px;
-    color:#777;
-    margin-bottom:18px;
-}
+        /* BUTTONS */
+        .buttons {
+            margin-top: 25px;
+        }
 
-.tag{
-    color:#7654c7;
-    font-size:13px;
-    letter-spacing:4px;
-    font-weight:bold;
-}
+        button,
+        .upload-label {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: #202942;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
 
-h1{
-    font-family:Georgia,serif;
-    font-size:56px;
-    margin:12px 0;
-    color:#222b4b;
-}
+        button:hover,
+        .upload-label:hover {
+            background: #7454a6;
+        }
 
-h1 span{
-    color:#7654c7;
-}
+        #imageUpload {
+            display: none;
+        }
 
-.hero h2{
-    color:#40577f;
-    font-size:22px;
-    margin-bottom:15px;
-}
+        /* SECTIONS */
+        section {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 35px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
 
-.hero-description{
-    max-width:700px;
-    margin:auto;
-    color:#60697c;
-    font-size:17px;
-    line-height:1.7;
-}
+        section h2 {
+            color: #202942;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-left: 5px solid #b58be0;
+            padding-left: 12px;
+        }
 
-/* BUTTON */
-.edit-btn{
-    margin-top:25px;
-    padding:13px 28px;
-    border:0;
-    border-radius:30px;
-    background:linear-gradient(135deg,#7654c7,#5186d9);
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
+        section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
 
-/* SECTIONS */
-.content{
-    max-width:1050px;
-    margin:25px auto;
-    padding:45px 7%;
-    background:#ffffffdf;
-    border-radius:30px;
-    box-shadow:0 15px 45px #282d5015;
-}
+        /* EDUCATION */
+        .education-card {
+            background: #f5f0ff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 14px;
+            border-left: 5px solid #8e6bb8;
+        }
 
-.content h2{
-    font-family:Georgia,serif;
-    color:#304a78;
-    font-size:32px;
-    margin-bottom:20px;
-}
+        .education-card h3 {
+            margin-bottom: 7px;
+            color: #202942;
+        }
 
-.about{
-    color:#60697a;
-    font-size:17px;
-    line-height:1.8;
-}
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-/* EDUCATION */
-.education{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
+        .skill {
+            background: #202942;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+        }
 
-.card{
-    padding:25px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#faf6ff,#f0f8ff);
-    border:1px solid #e0e4f2;
-}
+        /* HOBBIES */
+        .hobbies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
 
-.card h3{
-    color:#38547f;
-    margin-bottom:10px;
-}
+        .hobby {
+            background: #f5f0ff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
 
-.card p{
-    color:#646b7c;
-}
+        .hobby:hover {
+            transform: translateY(-5px);
+        }
 
-.badge{
-    display:inline-block;
-    margin-top:12px;
-    padding:5px 13px;
-    border-radius:20px;
-    background:#e9e1ff;
-    color:#6546a3;
-    font-size:12px;
-    font-weight:bold;
-}
+        /* CONTACT */
+        .contact-box {
+            line-height: 2.2;
+            font-size: 17px;
+        }
 
-/* SKILLS */
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
+        /* EDIT PANEL */
+        #editPanel {
+            display: none;
+        }
 
-.skill{
-    padding:10px 18px;
-    border-radius:25px;
-    background:#eeeaff;
-    color:#4b3c7b;
-    font-weight:bold;
-}
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+        }
 
-/* CONTACT */
-.contact{
-    padding:20px;
-    border-radius:20px;
-    background:#f7f8ff;
-}
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
 
-.contact p{
-    margin:10px 0;
-    color:#596176;
-}
+        label {
+            font-weight: bold;
+        }
 
-/* EDIT PANEL */
-#editPanel{
-    display:none;
-    max-width:1050px;
-    margin:25px auto;
-    padding:35px 7%;
-    background:white;
-    border-radius:30px;
-    box-shadow:0 15px 45px #282d5015;
-}
+        /* FOOTER */
+        footer {
+            background: #202942;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
 
-#editPanel h2{
-    color:#304a78;
-    margin-bottom:15px;
-}
+        /* MOBILE */
+        @media(max-width: 700px) {
 
-label{
-    display:block;
-    margin-top:14px;
-    font-weight:bold;
-    color:#40577f;
-}
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
 
-input,textarea{
-    width:100%;
-    padding:12px;
-    margin-top:6px;
-    border:1px solid #d4d9e8;
-    border-radius:10px;
-    font-size:15px;
-}
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-textarea{
-    min-height:100px;
-    resize:vertical;
-}
+            .hero h1 {
+                font-size: 32px;
+            }
 
-.save{
-    background:#2f8b82;
-}
-
-.reset{
-    background:#777;
-    margin-left:8px;
-}
-
-/* FOOTER */
-footer{
-    margin-top:45px;
-    padding:28px;
-    text-align:center;
-    background:#202b50;
-    color:white;
-}
-
-/* MOBILE */
-@media(max-width:750px){
-
-    nav{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:13px;
-    }
-
-    h1{
-        font-size:40px;
-    }
-
-    .hero-box{
-        padding:40px 20px;
-    }
-
-    .education{
-        grid-template-columns:1fr;
-    }
-
-    .content{
-        margin:18px 12px;
-        padding:35px 22px;
-    }
-}
-</style>
+            section {
+                margin: 20px 12px;
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
 <nav>
-
-<div class="logo">
-Memona <span>Kousar</span>
-</div>
-
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-</nav>
-
-
-<!-- HOME -->
-<section class="hero" id="home">
-
-<div class="hero-box">
-
-<div class="profile">
-
-<img id="profileImage"
-     src=""
-     alt="Memona Kousar Profile Picture">
-
-<button class="camera"
-        onclick="document.getElementById('photoInput').click()">
-📷
-</button>
-
-<input type="file"
-       id="photoInput"
-       accept="image/*"
-       onchange="changePhoto(event)">
-
-</div>
-
-<div class="photo-text">
-Click 📷 to add or change your profile picture
-</div>
-
-<div class="tag">
-WELCOME TO MY DIGITAL PROFILE
-</div>
-
-<h1>
-Hello, I'm <span id="nameDisplay">Memona Kousar</span>
-</h1>
-
-<h2 id="degreeDisplay">
-BS Information Technology — 5th Semester
-</h2>
-
-<p class="hero-description" id="aboutDisplay">
-I am a BS Information Technology student interested in
-web development, databases and modern technology.
-I enjoy learning new skills and creating practical digital projects.
-</p>
-
-<button class="edit-btn" onclick="toggleEdit()">
-✏️ Edit My Profile
-</button>
-
-</div>
-</section>
-
-
-<!-- EDIT PROFILE -->
-<div id="editPanel">
-
-<h2>✏️ Edit My Profile</h2>
-
-<label>Name</label>
-<input id="nameInput" value="Memona Kousar">
-
-<label>Degree / Semester</label>
-<input id="degreeInput"
-value="BS Information Technology — 5th Semester">
-
-<label>About Me</label>
-<textarea id="aboutInput">I am a BS Information Technology student interested in web development, databases and modern technology. I enjoy learning new skills and creating practical digital projects.</textarea>
-
-<label>Matriculation</label>
-<input id="matricInput"
-value="Govt Girls Higher Secondary School">
-
-<label>Intermediate</label>
-<input id="interInput"
-value="Govt Girls Higher Secondary School">
-
-<label>University</label>
-<input id="uniInput"
-value="University of Education">
-
-<label>Skills</label>
-<input id="skillsInput"
-value="HTML, CSS, SQL, Database Fundamentals, Web Development, MS Office">
-
-<label>Email</label>
-<input id="emailInput"
-value="memonakousar32@gmail.com">
-
-<button class="edit-btn save" onclick="saveProfile()">
-💾 Save Changes
-</button>
-
-<button class="edit-btn reset" onclick="resetProfile()">
-Reset
-</button>
-
-</div>
-
-
-<!-- ABOUT -->
-<section class="content" id="about">
-
-<h2>About Me</h2>
-
-<p class="about" id="aboutSection">
-I am a BS Information Technology student interested in
-web development, databases and modern technology.
-I enjoy learning new skills and creating practical digital projects.
-</p>
-
-</section>
-
-
-<!-- EDUCATION -->
-<section class="content" id="education">
-
-<h2>Education</h2>
-
-<div class="education">
-
-<div class="card">
-
-<h3>🎓 Matriculation</h3>
-
-<p id="matricDisplay">
-Govt Girls Higher Secondary School
-</p>
-
-<span class="badge">
-Completed
-</span>
-
-</div>
-
-
-<div class="card">
-
-<h3>📚 Intermediate</h3>
-
-<p id="interDisplay">
-Govt Girls Higher Secondary School
-</p>
-
-<span class="badge">
-Completed
-</span>
-
-</div>
-
-
-<div class="card">
-
-<h3>💻 BS Information Technology</h3>
-
-<p id="uniDisplay">
-University of Education
-</p>
-
-<span class="badge">
-5th Semester
-</span>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SKILLS -->
-<section class="content" id="skills">
-
-<h2>My Skills</h2>
-
-<div class="skills" id="skillsDisplay">
-
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">SQL</div>
-<div class="skill">Database Fundamentals</div>
-<div class="skill">Web Development</div>
-<div class="skill">MS Office</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-<section class="content" id="contact">
-
-<h2>Contact Me</h2>
-
-<div class="contact">
-
-<p>
-📧 <strong>Email:</strong>
-<span id="emailDisplay">memonakousar32@gmail.com</span>
-</p>
-
-<p>
-💻 <strong>Field:</strong>
-Information Technology
-</p>
-
-</div>
-
-</section>
-
-
-<footer>
-© 2026 Memona Kousar | Digital Profile
-</footer>
-
-
-<script>
-
-/* PROFILE PICTURE */
-
-function changePhoto(event){
-
-    const file = event.target.files[0];
-
-    if(file){
-
-        const reader = new FileReader();
-
-        reader.onload = function(e){
-
-            document.getElementById("profileImage").src =
-            e.target.result;
-
-            localStorage.setItem(
-                "profilePhoto",
-                e.target.result
-            );
-
-        };
-
-        reader.readAsDataURL(file);
-    }
-}
-
-
-/* LOAD PHOTO */
-
-const savedPhoto =
-localStorage.getItem("profilePhoto");
-
-if(savedPhoto){
-
-    document.getElementById("profileImage").src =
-    savedPhoto;
-
-}
-
-
-/* OPEN/CLOSE EDIT */
-
-function toggleEdit(){
-
-    const panel =
-    document.getElementById("editPanel");
-
-    if(panel.style.display === "block"){
-
-        panel.style.display = "none";
-
-    }else{
-
-        panel.style.display = "block";
-
-        panel.scrollIntoView({
-            behavior:"smooth"
-        });
-    }
-}
-
-
-/* SAVE PROFILE */
-
-function saveProfile(){
-
-    const name =
-    document.getElementById("nameInput").value;
-
-    const degree =
-    document.getElementById("degreeInput").value;
-
-    const about =
-    document.getElementById("aboutInput").value;
-
-    const matric =
-    document.getElementById("matricInput").value;
-
-    const inter =
-    document.getElementById("interInput").value;
-
-    const uni =
-    document.getElementById("uniInput").value;
-
-    const skills =
-    document.getElementById("skillsInput").value;
-
-    const email =
-    document.getElementById("emailInput").value;
-
-
-    localStorage.setItem("name",name);
-    localStorage.setItem("degree",degree);
-    localStorage.setItem("about",about);
-    localStorage.setItem("matric",matric);
-    localStorage.setItem("inter",inter);
-    localStorage.setItem("uni",uni);
-    localStorage.setItem("skills",skills);
-    localStorage.setItem("email",email);
-
-
-    document.getElementById("nameDisplay").textContent =
-    name;
-
-    document.getElementById("degreeDisplay").textContent =
-    degree;
-
-    document.getElementById("aboutDisplay").textContent =
-    about;
-
-    document.getElementById("aboutSection").textContent =
-    about;
-
-    document.getElementById("matricDisplay").textContent =
-    matric;
-
-    document.getElementById("interDisplay").textContent =
-    inter;
-
-    document.getElementById("uniDisplay").textContent =
-    uni;
-
-    document.getElementById("emailDisplay").textContent =
-    email;
-
-
-    const skillArray =
-    skills.split(",");
-
-    const box =
-    document.getElementById("skillsDisplay");
-
-    box.innerHTML = "";
-
-    skillArray.forEach(function(skill){
-
-        const div =
-        document.createElement("div");
-
-        div.className = "skill";
-
-        div.textContent = skill.trim();
-
-        box.appendChild(div);
-
-    });
-
-
-    document.getElementById("editPanel")
-    .style.display = "none";
-
-    alert("Profile updated successfully!");
-
-}
-
-
-/* RESET */
-
-function resetProfile(){
-
-    localStorage.clear();
-
-    location.reload();
-
-}
-
-
-/* LOAD SAVED DATA */
-
-window.onload = function(){
-
-    const name =
-    localStorage.getItem("name");
-
-    const degree =
-    localStorage.getItem("degree");
-
-    const about =
-    localStorage.getItem("about");
-
-    const matric =
-    localStorage.getItem("matric");
-
-    const inter =
-    localStorage.getItem("inter");
-
-    const uni =
-    localStorage.getItem("uni");
-
-    const skills =
-    localStorage.getItem("skills");
-
-    const email =
-    localStorage.getItem("email");
-
-
-    if(name){
-
-        document.getElementById("nameInput").value = name;
-
-        document.getElementById("nameDisplay").textContent = name;
-    }
-
-    if(degree){
-
-        document.getElementById("degreeInput").value = degree;
-
-        document.getElementById("degreeDisplay").textContent = degree;
-    }
-
-    if(about){
-
-        document.getElementById("aboutInput").value = about;
-
-        document.getElementById("aboutDisplay").textContent = about;
-
-        document.getElementById("aboutSection").textContent = about;
-    }
-
-    if(matric){
-
-        document.getElementById("matricInput").value = matric;
-
-        document.getElementById("matricDisplay").textContent = matric;
-    }
-
-    if(inter){
-
-        document.getElementById("interInput").value = inter;
-
-        document.getElementById("interDisplay").textContent = inter;
-    }
-
-    if(uni){
-
-        document.getElementById("uniInput").value = uni;
-
-        document.getElementById("uniDisplay").textContent = uni;
-    }
-
-    if(email){
-
-        document.getElementById("emailInput").value = email;
-
-        document.getElementById("emailDisplay").textContent = email;
-    }
-
-    if(skills){
-
-        document.getElementById("skillsInput").value = skills;
-
-        const box =
-        document.getElementById("skillsDisplay");
-
-        box.innerHTML = "";
-
-        skills.split(",").forEach(function(skill){
-
-            const div =
-            document.createElement("div");
-
-            div.className = "skill";
-
-            div.textContent = skill.trim();
-
-            box.appendChild(div);
-
-        });
-    }
-
-};
-
-</script>
-
-</body>
-</html>
+    <h2>My Digital Profile</h2>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a
